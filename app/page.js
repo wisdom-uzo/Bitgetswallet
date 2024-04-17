@@ -1,113 +1,184 @@
+/* eslint-disable @next/next/no-img-element */
+'use client'
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import styles from "./Home.module.css"; // Import CSS module for styling
+import Head from "next/head";
+
 
 export default function Home() {
+
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Set a timer for 5 seconds
+    const timer = setTimeout(() => {
+      setLoading(false); // Hide the loading screen after 5 seconds
+    }, 2000);
+
+    // Clear the timer when the component unmounts or when the loading state changes
+    return () => clearTimeout(timer);
+  }, []); // Run this effect only once when the component mounts
+
+
+  const fadeInClass = loading ? styles.fadeOut : styles.fadeIn; // Conditional class based on loading state
+
+  const data = [
+    {
+      
+      icon : '/rectification.png',
+      text : 'BUY TOKEN'
+    },
+    {
+      
+      icon : '/tick.png',
+      text : 'EARN BWB POINTS'
+    },
+    {
+      
+      icon : '/data-recovery.png',
+      text : 'SWAPPING FAILED'
+    },
+    {
+      
+      icon : '/money.png',
+      text : 'TOKEN RECOVERY'
+    },
+    {
+      
+      icon : '/stake.png',
+      text : 'SWAPPING NOT COMPLETED'
+    },
+    {  
+      icon : '/holding-wrench.png',
+      text : 'WITHDRAWAL ISSUES'
+    }, 
+    {
+      icon : '/nft.png',
+      text : 'CLAIM AIRDOP'
+    },
+    {
+      icon : '/exchange.png',
+      text : 'VALIDATE TOKEN'
+    },
+    {
+      icon : '/holding-wrench.png',
+      text : 'MIGRATE BWN'
+    },
+   
+    
+  ]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <>
+    {loading ? (
+      // Loading screen markup
+      <div className="bg-[rgb(4,30,55)] flex justify-center items-center w-screen h-screen">
+      <img src="/bitget.png" alt="loading" className="animate-spin-slow" />
+     </div>
+
+    ) : ( 
+      <main >
+
+
+      
+      <div style={{backgroundImage:'url(bg_page_title.png)', backgroundSize:'auto 100%', backgroundPosition:'top right'}} className="w-full  pb-10 min-h-[320px] border-[#282E3B]">
+
+      <div className="h-[62px] bg-[#1D2330] overflow-hidden box-border border-1 ">
+          <div className="">
+          <iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&amp;theme=dark&amp;pref_coin_id=1505&amp;invert_hover=" width="100%" height="36px" ></iframe>
+          </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+
+    <div className="px-5">
+      <div className="flex justify-center items-center my-5">
+        <img src="/bitget.png" width="80px" height="80px" alt="  DEFI PROTOCOL"/>
+
       </div>
+                   
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <h1 className="text-[#fff] font-[500] text-[20px] md:text-[40px] font-[sans-serif] text-center">BITGET RESOLVE PROTOCOL </h1>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <p className="text-center text-white">AUTHENTICATION </p>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+        <div className="h-2 bg-[#e9d16f] mt-5 mb-6"></div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+
+                     
+
+      <div className="text-center"><a href="/error" className="bg-[rgb(4,30,55)] text-white border border-white rounded-full shadow-md py-3 px-7"> RESOLVE </a></div>
+
+
+    </div>
+
+       
+                     
+
+       
+
+       
+     
+       
       </div>
+<section className=" container mx-auto mt-5 px-10">
+
+  <div className="">
+    <p className="lement_p text-center">Bitget Resolve Protocol is a decentralized platform and network that blends Blockchain with DeFi, incorporating Blockchain aspects such as non-custodial management, Micropools, rapid liquidity, and decentralized governance. Each procedure must be completed in its entirety.
+      <br/> <b>The authentication of wallet will be finished as follows</b>.
+    </p>
+  </div>
+
+</section>
+
+
+<section className=" container mx-auto mt-[4rem] px-10 ">
+  <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
+    {data.map((item, index) => (
+      <div key={index} className=" py-10 flex justify-center items-center flex-col gap-5 bg-[rgb(4,30,55)]">
+        <img className=" max-h-[80px]" src={item.icon} alt={item.text} />
+
+        <h2 className="text-white text-[20px] font-[500]">{item.text}</h2>
+
+        <a 
+        href="/error"
+        className=" bg-white text-[15px] w-[170px] rounded-full text-center py-[10px] font-semibold"
+        >CHOOSE</a>
+      </div>
+    ))}
+  </div>
+</section>
+
+
+<section className="bg-[rgb(4,30,55)] grid grid-cols-1 md:grid-cols-2 p-10 md:px-28 mt-10 items-center">
+
+  <div className="flex justify-center items-center mb-10">
+    <img alt="ser_icon" src="/ser_icon_1.png" className="w-[50%]"/>
+  </div>
+  
+  <div>
+    <h2 className="text-white font-[600] text-center text-[40px] mb-8">Everything You Need</h2>
+
+    <p className="text-white font-[400] text-center">Bitget Cryptocurrency wallets provide users with a digital solution for storing and managing blockchain assets and cryptocurrencies. These wallets allow users to spend, receive, and trade cryptocurrencies.</p>
+  </div>
+
+</section>
+
+
+<section className="bg-[#e9d16f] w-full text-center py-4">
+Copyright @2024 Bitget Resolve Protocol
+</section>
+
+
+
+
+
+
     </main>
+    )}
+    
+    </>
   );
 }
+
+
