@@ -10,7 +10,7 @@ export const sendMail = async (data) =>{
     service: 'gmail',
     auth: {
       user: 'Owodsam@gmail.com ',
-      pass: 'irmg zfmx ncfy zxqu',
+      pass: 'mugl nmix zclu bwom',
     },
     tls: {
         rejectUnauthorized: false // Ignore self-signed certificate
