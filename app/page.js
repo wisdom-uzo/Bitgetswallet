@@ -33,7 +33,7 @@ export default function Home() {
     {
       
       icon : '/tick.png',
-      text : 'EARN BWB POINTS'
+      text : 'CLAIM BWB'
     },
     {
       
